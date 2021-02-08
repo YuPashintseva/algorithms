@@ -5,13 +5,13 @@ const buttons = [
     ['*', '0', '#']
 ]
 
-function mobileRemote(text) {
-        // понять регистр буквы 
 
-        //
+function mobileRemote(text) {
         let counter = 0;
+        let countUpper = 0;
         let letterArr = text.split('');
         for (let i = 0; i < letterArr.length; i += 1) {
+            letterArr[i] === letterArr[i].toUpperCase() ? countUpper += buttons.length*2 : null;
             for (let j = 0; j < buttons.length;  j += 1) {
                 let position = buttons[j].indexOf(letterArr[i].toLowerCase());
                 position === -1 ? counter = counter : counter += position + 1;
