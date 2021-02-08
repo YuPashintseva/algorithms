@@ -1,12 +1,23 @@
 const buttons = [
-    ['1', '2abc', '3def'],
-    ['4ghi', '5jkl', '6mno'],
-    ['7pqrs', '8tuv', '9wxyz'],
+    [1, 2, 'a', 'b', 'c', 3, 'd', 'e', 'f'],
+    [4, 'g','h', 'i', 5, 'j', 'k', 'l', 6, 'm','n', 'o'],
+    [7, 'p', 'q', 'r', 's', 8, 't', 'u', 'v', 9, 'w', 'x', 'y', 'z'],
     ['*', '0', '#']
 ]
 
 function mobileRemote(text) {
-        // понять регистр буквы
+        // понять регистр буквы 
+
+        //
+        let counter = 0;
+        let letterArr = text.split('');
+        for (let i = 0; i < letterArr.length; i += 1) {
+            for (let j = 0; j < buttons.length;  j += 1) {
+                let position = buttons[j].indexOf(letterArr[i].toLowerCase());
+                position === -1 ? counter = counter : counter += position + 1;
+            }
+        }
+        return counter;
 }
 
 
